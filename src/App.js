@@ -26,9 +26,9 @@ function App() {
     const lang = languages[0];
     const popu = new Intl.NumberFormat().format(population);
 
-    axios.post('create-pdf', {name, capital, flag, popu, region, subregion, curr, lang})
+    axios.post('https://react-country-server.netlify.app/create-pdf', {name, capital, flag, popu, region, subregion, curr, lang})
     .then(() => {
-      return axios.get('fetch-pdf', {
+      return axios.get('https://react-country-server.netlify.app/fetch-pdf', {
         name: name,
         responseType: 'blob'
       });
